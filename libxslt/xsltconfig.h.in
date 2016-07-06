@@ -50,11 +50,10 @@ extern "C" {
  * is insignifiant and being able to run xsltpoc -v is useful. On
  * by default unless --without-debug is passed to configure
  */
-#if @WITH_XSLT_DEBUG@
-#define WITH_XSLT_DEBUG
-#endif
+#cmakedefine WITH_XSLT_DEBUG
+#cmakedefine WITH_MEM_DEBUG
 
-#if @WITH_MEM_DEBUG@
+#if WITH_MEM_DEBUG
 /**
  * DEBUG_MEMORY:
  *
@@ -82,7 +81,8 @@ extern "C" {
  * compiled in the libxml2 library.
  */
 
-#if @WITH_TRIO@
+#cmakedefine WITH_TRIO
+#ifdef WITH_TRIO
 #define XSLT_NEED_TRIO
 #endif
 #ifdef __VMS
@@ -104,11 +104,7 @@ extern "C" {
  * is insignifiant.
  * On by default unless --without-debugger is passed to configure
  */
-#if @WITH_DEBUGGER@
-#ifndef WITH_DEBUGGER
-#define WITH_DEBUGGER
-#endif
-#endif
+#cmakedefine WITH_DEBUGGER
 
 /**
  * WITH_MODULES:
@@ -116,25 +112,14 @@ extern "C" {
  * Whether module support is configured into libxslt
  * Note: no default module path for win32 platforms
  */
-#if @WITH_MODULES@
-#ifndef WITH_MODULES
-#define WITH_MODULES
-#endif
+#cmakedefine WITH_MODULES
 #define LIBXSLT_DEFAULT_PLUGINS_PATH() "@LIBXSLT_DEFAULT_PLUGINS_PATH@"
-#endif
 
 /**
  * Locale support
  */
-#if @XSLT_LOCALE_XLOCALE@
-#ifndef XSLT_LOCALE_XLOCALE
-#define XSLT_LOCALE_XLOCALE
-#endif
-#elif @XSLT_LOCALE_WINAPI@
-#ifndef XSLT_LOCALE_WINAPI
-#define XSLT_LOCALE_WINAPI
-#endif
-#endif
+#cmakedefine XSLT_LOCALE_XLOCALE
+#cmakedefine XSLT_LOCALE_WINAPI
 
 /**
  * ATTRIBUTE_UNUSED:

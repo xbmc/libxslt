@@ -150,3 +150,4 @@ tests/plugins/.libs
 tests/plugins/plugin.res
 xsltproc/testThreads
 xsltproc/.libs/
+build/
