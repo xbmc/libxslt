@@ -15,17 +15,8 @@
 /* Define to 1 if you have the <float.h> header file. */
 #cmakedefine HAVE_FLOAT_H
 
-/* Define if floor is there */
-#cmakedefine HAVE_FLOOR
-
-/* Define to 1 if you have the <fp_class.h> header file. */
-#cmakedefine HAVE_FP_CLASS_H
-
 /* Define to 1 if you have the `ftime' function. */
 #cmakedefine HAVE_FTIME
-
-/* Define if gcrypt library is available. */
-#cmakedefine HAVE_GCRYPT
 
 /* Define to 1 if you have the `gettimeofday' function. */
 #cmakedefine HAVE_GETTIMEOFDAY
