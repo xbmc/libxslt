@@ -158,12 +158,16 @@ target_compile_definitions(libxslt
 add_dependencies(libxslt libexslt)
 
 if(WITH_ICONV)
-  find_package(iconv REQUIRED NO_MODULE)
+  if(!UNIFIED_BUILD)
+    find_package(iconv REQUIRED NO_MODULE)
+  endif()
   target_link_libraries(libxslt PRIVATE iconv::iconv)
   target_link_libraries(libexslt PRIVATE iconv::iconv)
 endif()
 
-find_package(libxml2 REQUIRED NO_MODULE)
+if (!UNIFIED_BUILD)
+  find_package(libxml2 REQUIRED NO_MODULE)
+endif()
 target_link_libraries(libxslt PRIVATE libxml2::libxml2)
 target_link_libraries(libexslt PRIVATE libxml2::libxml2)
 
